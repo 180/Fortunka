@@ -1,0 +1,13 @@
+	<div class="element">
+	<b><%= fortune.author %></b><br/>
+	<p><%= link_to fortune.body, fortune %>
+	<div class="options">
+	<% if can? :update, fortune %>
+		<%= link_to "Edytuj", edit_fortune_path(fortune) %>
+	<% end %>
+	<% if can? :destroy, fortune %>
+		<%= link_to "Usuń", fortune, :confirm => 'Jestes pewien?', :method => :delete %>
+	<% end %>
+	</div>
+	</p>
+	</div>

@@ -1,0 +1,20 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+  views:
+    pagination:
+      previous: "&#x21d0; Poprzednia"
+      next: "Następna &#x21d2;"
+      first: "Pierwsza"
+      last: "Ostatnia"
+      truncate: ""
+  helpers:
+    submit:
+    #  create: "Dodaj %{model}"
+    #  update: "Edytuj %{model}"
+      create: "Dodaj"
+      update: "Edytuj"
+    data:
+      sure: "Jesteś pewien/na ,że chcesz to usunąć?"

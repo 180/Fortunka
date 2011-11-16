@@ -1,0 +1,18 @@
+<% title "Lista fortunek" %>
+
+<div class="search"> 
+	<%= render :partial => 'searchForm'%>
+</div>
+
+<div id="fortunes">
+	<%= render :partial => 'fortune', :collection => @fortunes %>
+</div>
+
+<div id="paginator">
+  <%= paginate @fortunes, :remote => true %>
+</div>
+
+<br/>
+<% if can? :create, @fortune %>
+	<div class="kul"><%= link_to "Dodaj fortunkę", new_fortune_path %></div>
+<% end %>

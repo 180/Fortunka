@@ -1,0 +1,14 @@
+en:
+  flash:
+    actions:
+      create:
+    #    notice: '%{resource_name} was successfully created.'
+         notice: 'Pomyślnie przeprowadzono operację tworzenia!'
+      update:
+    #    notice: '%{resource_name} was successfully updated.'
+         notice: 'Aktualizacja przebiegła pomyślnie.'
+      destroy:
+         notice: 'Usunięto.'
+         alert: 'Nie można usunąć'
+    #    notice: '%{resource_name} was successfully destroyed.'
+    #    alert: '%{resource_name} could not be destroyed.'

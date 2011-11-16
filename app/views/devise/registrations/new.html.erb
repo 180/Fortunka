@@ -1,0 +1,20 @@
+<% title "Rejestracja" %>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+	<br/>
+	<br/>
+	<br/>
+  <div class="register">
+    <%= f.input :email, :required => true, :autofocus => true, :input_html => {:size => 25} %>
+    <%= f.input :password, :required => true, :input_html => {:size => 24}%>
+    <%= f.input :password_confirmation, :required => true , :input_html => {:size => 24}%>
+  </div>
+
+  <div class="reg">
+   <%= f.button :submit, "Zarejestruj się" %>
+  </div>
+<% end %>
+<!--
+<%= render :partial => "devise/shared/links" %>
+-->

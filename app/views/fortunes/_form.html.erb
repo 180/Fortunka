@@ -1,0 +1,5 @@
+<%= simple_form_for @fortune do |f| %>
+  <%= f.input :author, :input_html => {:size => 25}, :required => false %>
+  <div class="addFBody"><%= f.input :body, :input_html => {:rows => 4, :cols => 40} %></div>
+  <span class="submitForm"><%= f.button :submit %></submit>
+<% end %>

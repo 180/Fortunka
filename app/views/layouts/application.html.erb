@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en" class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="pl" class="no-js"><!--<![endif]-->
+  <head>
+	<meta charset="UTF-8">
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+	    Remove this if you use the .htaccess -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Fortunka<%= content_for?(:title) ? " | " + yield(:title) : "" %></title>
+    <meta name="description" content="fortunki">
+    <meta name="author" content="Maciej Stanik">
+    <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <%= stylesheet_link_tag "application" %>
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "rails", "application" %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+    <%= auto_discovery_link_tag(:atom, fortunes_path(:atom)) %>
+  </head>
+  <body>
+	  
+	  
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"></script>
+	<script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/jquery.js"%3E%3C/script%3E'))</script>
+	
+    
+    <%- if Rails.env.production? -%>
+    <script>
+     
+    </script>
+    <%- end -%>
+
+<!--start header -->
+<div id="header-container">
+	<header class="wrapper">
+	<div id="logo">
+		<div id="title">fortunka</div>
+	</div>
+<!--start navigation -->
+	<nav id="authentication">
+		<% if user_signed_in? %>
+			<div class="kul"><%= link_to "Dodaj fortunkę", new_fortune_path %></div>
+			<div class="kul"><%= link_to "Wyloguj", destroy_user_session_path, :method => :delete %></div>
+		<% else %>
+			<div class="kul"><%= link_to "Zarejestruj się", new_user_registration_path %></div>	
+			<div class="kul"><%= link_to "Zaloguj się", new_user_session_path %></div>
+		<% end %>
+	</nav>
+    <nav>
+		<div class="kul"><a href="/">Fortunki</a></div>
+        <div class="kul"><%= link_to "Losuj fortunkę", random_path %></div>
+    </nav>
+<!--end navigation -->
+       </header>
+</div>
+<!--end header -->
+<!--start main content -->
+<div id="main" class="wrapper">
+	<aside>
+			
+			<% if user_signed_in? %>
+					<span class="logged">Zalogowany jako <%= current_user.email %><br/>
+					<%= link_to "Nie Ty?", destroy_user_session_path, :method => :delete %></span>
+					
+			<%end%>
+			<br/>
+			<p>Jeszcze tu nic nie ma </br> ALE </br> może tu być Twoja reklama</p>
+			<span id="result_box" lang="en"></span>
+			
+			
+	</aside>
+			
+	<article>
+	<div class="message">   
+	<% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "#{name}" %>
+      <% end %>
+		
+    </div>
+      <%= content_tag :h1, yield(:title) if show_title? %>
+      <%= yield %>		   
+	
+	
+	
+  </article>
+	
+</div>
+<!--end main content -->
+<!--start footer -->
+  <div id="footer-container">	
+  <footer class="wrapper">
+		<!--start footer nav -->
+		<nav>
+			<div class="foot-nav"><a href="http://www.initializr.com/">Initializr</a></div>
+			<div class="foot-nav"><%= link_to "Losuj fortunkę", random_path %></div>
+			<div class="foot-nav"><a href="http://wbzyl.inf.ug.edu.pl/rails4/">Ruby@Wbzyl</a></div>
+		</nav> 	
+		
+		<!--end footer nav -->  
+   </footer> 
+   <!-- nie da sie ustawic po prawej -->
+   <!-- 
+   <div class="copy"><a href="http://www.imediacreatives.it" target="_blank">
+		Coder &amp; Design Imediacreatives</a> &copy; copyright revan
+	</div>--> 
+   </div>
+<!--end footer -->
+	<%= render :partial => 'layouts/ga' if Rails.env == 'production' %> 
+  </body>
+</html>

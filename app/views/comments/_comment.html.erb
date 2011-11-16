@@ -1,0 +1,19 @@
+<div class="cmt">
+	<div class="comment-author">
+		<%= comment.user.email %>
+	</div>
+	<div class="comment">
+		<%= comment.body %>
+	</div>
+	
+	<div class="options">
+		<% if can? :update, comment %>
+		<%= link_to 'Edytuj', edit_fortune_comment_path(@fortune, comment) %>
+		<% end %>
+		<% if can? :destroy, comment %>
+		<%= link_to "Usuń", [@fortune, comment], :confirm => t('helpers.data.sure'), :method => :delete %>
+		<% end %>
+	</div>
+</div>
+
+
