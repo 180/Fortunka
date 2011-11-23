@@ -368,9 +368,9 @@ input[type="text"], textarea {
 	font-size: 20px;
 	color:#006666
 	border
-	-webkit-box-shadow:0 0px 20px -5px #AAA;
-	   -moz-box-shadow:0 0px 20px -5px #AAA;
-	        box-shadow:0 0px 20px -5px #AAA;
+	-webkit-box-shadow:0 0px 30px -5px #AAA;
+	   -moz-box-shadow:0 0px 30px -5px #AAA;
+	        box-shadow:0 0px 30px -5px #AAA;
 }
 
 #fortunes .options {

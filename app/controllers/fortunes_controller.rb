@@ -2,7 +2,7 @@ class FortunesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @fortunes = Fortune.search(params[:search]).order(:author).page(params[:page]).per(5)
+    @fortunes = Fortune.search(params[:search]).order(:author).page(params[:page]).per(8)
     respond_with(@fortunes)
   end
 	
