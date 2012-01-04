@@ -3,7 +3,7 @@ en:
     actions:
       create:
     #    notice: '%{resource_name} was successfully created.'
-         notice: 'Pomyślnie przeprowadzono operację tworzenia!'
+         notice: 'Utworzenie sie udało!'
       update:
     #    notice: '%{resource_name} was successfully updated.'
          notice: 'Aktualizacja przebiegła pomyślnie.'

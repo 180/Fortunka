@@ -9,12 +9,11 @@ en:
       next: "Następna &#x21d2;"
       first: "Pierwsza"
       last: "Ostatnia"
-      truncate: ""
+      truncate: " "
   helpers:
     submit:
-    #  create: "Dodaj %{model}"
-    #  update: "Edytuj %{model}"
+   
       create: "Dodaj"
       update: "Edytuj"
     data:
-      sure: "Jesteś pewien/na ,że chcesz to usunąć?"
+      sure: "Jesteś pewien ,że chcesz usunąć?"
